@@ -22,12 +22,17 @@ source ./bin/activate
 
 pip install --require-hashes -r requirements.txt
 
-gdown --folder https://bit.ly/alphageometry
+gdown --folder --continue https://bit.ly/alphageometry
 DATA=ag_ckpt_vocab
 
 MELIAD_PATH=meliad_lib/meliad
-mkdir -p $MELIAD_PATH
-git clone https://github.com/google-research/meliad $MELIAD_PATH
+if [ ! -d "$MELIAD_PATH" ]; then
+  git clone https://github.com/google-research/meliad "$MELIAD_PATH"
+else
+  echo "Directory already exists, skipping clone."
+fi
+# mkdir -p $MELIAD_PATH
+# git clone https://github.com/google-research/meliad $MELIAD_PATH
 export PYTHONPATH=$PYTHONPATH:$MELIAD_PATH
 
 DDAR_ARGS=(
