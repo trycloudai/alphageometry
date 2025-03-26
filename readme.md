@@ -4,6 +4,20 @@ git config --global user.name "TryCloudAI"
 
 git config --global core.editor "vim"
 
+wget https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-2.5.1.tar.gz
+tar -xzf mpdecimal-2.5.1.tar.gz
+cd mpdecimal-2.5.1
+./configure
+make
+sudo make install
+
+sudo apt install -y build-essential libncurses-dev libssl-dev zlib1g-dev libffi-dev libreadline-dev libsqlite3-dev wget curl llvm libbz2-dev liblzma-dev tk-dev libgdbm-dev libnss3-dev libgdbm-compat-dev libdb-dev libexpat1-dev libbluetooth-dev
+
+curl https://pyenv.run | bash
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+   
 ===
 
 Q: + git clone https://github.com/google-research/meliad meliad_lib/meliad
