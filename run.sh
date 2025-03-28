@@ -22,8 +22,10 @@ source ./bin/activate
 
 pip install --require-hashes -r requirements.txt
 
-gdown --folder --continue https://bit.ly/alphageometry
 DATA=ag_ckpt_vocab
+if [ ! -d "$DATA" ]; then
+gdown --folder https://bit.ly/alphageometry
+fi
 
 MELIAD_PATH=meliad_lib/meliad
 if [ ! -d "$MELIAD_PATH" ]; then
